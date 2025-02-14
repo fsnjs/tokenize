@@ -22,6 +22,18 @@ export abstract class StringTokenizer<R> extends TokenizerBase<string, R> {
         if (whitespaceRegex) this._whitespaceRegEx = whitespaceRegex;
     }
 
+    public isWord(val: string) {
+        return this._wordRegEx.test(val);
+    }
+
+    public isNumber(number: string) {
+        return this._numberRegEx.test(number);
+    }
+
+    public isWhitespace(char: string) {
+        return this._whitespaceRegEx.test(char);
+    }
+
     /**
      * Consumes vars until a non-whitespace token is shifted
      * from `vals`, returning the unshifted non-whitespace
